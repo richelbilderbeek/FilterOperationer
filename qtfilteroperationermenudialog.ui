@@ -59,7 +59,7 @@
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="ToolFilterOperationer.qrc">:/filteroperationer/images/ToolFilterOperationerResult.png</pixmap>
+      <pixmap resource="FilterOperationer.qrc">:/filteroperationer/images/FilterOperationerTest.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -91,7 +91,7 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="ToolFilterOperationer.qrc"/>
+  <include location="FilterOperationer.qrc"/>
  </resources>
  <connections/>
 </ui>

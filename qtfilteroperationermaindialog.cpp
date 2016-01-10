@@ -42,7 +42,7 @@ ribi::QtFilterOperationerMainDialog::QtFilterOperationerMainDialog(QWidget *pare
     m_model->SetRawData(m);
   }
 
-  QPixmap p(":/filteroperationer/images/ToolFilterOperationerTest.png");
+  QPixmap p(":/filteroperationer/images/FilterOperationerTest.png");
   assert(!p.isNull());
   ShowLoadedPixmap(p);
 }

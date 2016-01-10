@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/filteroperationer/images">
+        <file>FilterOperationerResult.png</file>
+        <file>FilterOperationerTest.png</file>
+    </qresource>
+</RCC>

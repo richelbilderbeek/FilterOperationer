@@ -3,7 +3,6 @@
 #include <cassert>
 #include <iostream>
 
-#include "richelbilderbeekprogram.h"
 #include "testtimer.h"
 #include "trace.h"
 
@@ -54,18 +53,9 @@ ribi::Help ribi::FilterOperationerMenuDialog::GetHelp() const noexcept
   );
 }
 
-boost::shared_ptr<const ribi::Program> ribi::FilterOperationerMenuDialog::GetProgram() const noexcept
-{
-  boost::shared_ptr<const ribi::Program> p {
-    new ribi::ProgramFilterOperationer
-  };
-  assert(p);
-  return p;
-}
-
 std::string ribi::FilterOperationerMenuDialog::GetVersion() const noexcept
 {
-  return "2.0";
+  return "3.0";
 }
 
 std::vector<std::string> ribi::FilterOperationerMenuDialog::GetVersionHistory() const noexcept
@@ -73,7 +63,8 @@ std::vector<std::string> ribi::FilterOperationerMenuDialog::GetVersionHistory() 
   return {
     "2008-xx-17: version 1.0: initial Windows-only version",
     "2013-11-29: version 2.0: port to Qt",
-    "2013-12-19: version 2.1: allowed saving of images in desktop version"
+    "2013-12-19: version 2.1: allowed saving of images in desktop version",
+    "2016-01-10: version 3.0: moved to own GitHub",
   };
 }
 
