@@ -29,9 +29,6 @@ private slots:
 
 private:
   Ui::QtFilterOperationerMenuDialog *ui;
-  #ifndef NDEBUG
-  static void Test() noexcept;
-  #endif
 };
 
 } //~namespace ribi

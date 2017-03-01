@@ -11,9 +11,7 @@
 #include "filteroperationermaindialog.h"
 #include "matrix.h"
 #include "qtublasmatrixdoublemodel.h"
-#include "testtimer.h"
 #include "ui_qtfilteroperationermaindialog.h"
-#include "trace.h"
 #pragma GCC diagnostic pop
 
 ribi::QtFilterOperationerMainDialog::QtFilterOperationerMainDialog(QWidget *parent)
@@ -23,9 +21,6 @@ ribi::QtFilterOperationerMainDialog::QtFilterOperationerMainDialog(QWidget *pare
     m_result{nullptr},
     m_source{nullptr}
 {
-  #ifndef NDEBUG
-  Test();
-  #endif
   ui->setupUi(this);
 
   ui->filter->setModel(m_model);
@@ -131,18 +126,6 @@ void ribi::QtFilterOperationerMainDialog::on_button_do_clicked()
   assert(m_result);
   assert(!m_result->pixmap()->isNull());
 }
-
-#ifndef NDEBUG
-void ribi::QtFilterOperationerMainDialog::Test() noexcept
-{
-  {
-    static bool is_tested{false};
-    if (is_tested) return;
-    is_tested = true;
-  }
-  const TestTimer test_timer(__func__,__FILE__,1.0);
-}
-#endif
 
 void ribi::QtFilterOperationerMainDialog::on_box_filter_cols_valueChanged(int arg1)
 {

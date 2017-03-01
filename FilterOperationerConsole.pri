@@ -1,13 +1,12 @@
-INCLUDEPATH += \
-    ../FilterOperationer
+INCLUDEPATH += $$PWD
 
 SOURCES += \
-    ../FilterOperationer/filteroperationermaindialog.cpp \
-    ../FilterOperationer/filteroperationermenudialog.cpp
+    $$PWD/filteroperationermaindialog.cpp \
+    $$PWD/filteroperationermenudialog.cpp
 
 HEADERS += \
-    ../FilterOperationer/filteroperationermaindialog.h \
-    ../FilterOperationer/filteroperationermenudialog.h
+    $$PWD/filteroperationermaindialog.h \
+    $$PWD/filteroperationermenudialog.h
 
 RESOURCES += \
-    ../FilterOperationer/FilterOperationer.qrc
+    $$PWD/FilterOperationer.qrc

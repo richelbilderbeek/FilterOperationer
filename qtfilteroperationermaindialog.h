@@ -50,9 +50,6 @@ private:
 
   void OnAnyChange() noexcept;
   void ShowLoadedPixmap(const QPixmap& pixmap);
-  #ifndef NDEBUG
-  static void Test() noexcept;
-  #endif
 };
 
 } //~namespace ribi

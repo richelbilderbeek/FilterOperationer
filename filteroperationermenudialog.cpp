@@ -3,19 +3,13 @@
 #include <cassert>
 #include <iostream>
 
-#include "testtimer.h"
-#include "trace.h"
-
 int ribi::FilterOperationerMenuDialog::ExecuteSpecific(const std::vector<std::string>& argv) noexcept
 {
-  #ifndef NDEBUG
-  Test();
-  #endif
   const int argc = static_cast<int>(argv.size());
   if (argc == 1)
   {
     std::cout << GetHelp() << '\n';
-    return 1;
+    return 0;
   }
   assert(!"TODO");
   return 1;
@@ -33,8 +27,6 @@ ribi::About ribi::FilterOperationerMenuDialog::GetAbout() const noexcept
     GetVersion(),
     GetVersionHistory());
   a.AddLibrary("Test image from http://sipi.usc.edu");
-  a.AddLibrary("TestTimer version: " + TestTimer::GetVersion());
-  a.AddLibrary("Trace version: " + Trace::GetVersion());
 
   return a;
 }
@@ -67,15 +59,3 @@ std::vector<std::string> ribi::FilterOperationerMenuDialog::GetVersionHistory() 
     "2016-01-10: version 3.0: moved to own GitHub",
   };
 }
-
-#ifndef NDEBUG
-void ribi::FilterOperationerMenuDialog::Test() noexcept
-{
-  {
-    static bool is_tested{false};
-    if (is_tested) return;
-    is_tested = true;
-  }
-  const TestTimer test_timer(__func__,__FILE__,1.0);
-}
-#endif

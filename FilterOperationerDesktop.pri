@@ -1,13 +1,13 @@
-include(../FilterOperationer/FilterOperationerConsole.pri)
+include(FilterOperationerConsole.pri)
 
 HEADERS += \
-    ../FilterOperationer/qtfilteroperationermaindialog.h \
-    ../FilterOperationer/qtfilteroperationermenudialog.h
+    $$PWD/qtfilteroperationermaindialog.h \
+    $$PWD/qtfilteroperationermenudialog.h
 
 SOURCES += \
-    ../FilterOperationer/qtfilteroperationermaindialog.cpp \
-    ../FilterOperationer/qtfilteroperationermenudialog.cpp
+    $$PWD/qtfilteroperationermaindialog.cpp \
+    $$PWD/qtfilteroperationermenudialog.cpp
 
 FORMS += \
-    ../FilterOperationer/qtfilteroperationermaindialog.ui \
-    ../FilterOperationer/qtfilteroperationermenudialog.ui
+    $$PWD/qtfilteroperationermaindialog.ui \
+    $$PWD/qtfilteroperationermenudialog.ui
