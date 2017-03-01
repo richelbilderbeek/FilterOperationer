@@ -14,7 +14,7 @@ namespace ribi {
 
 class QtFilterOperationerMenuDialog : public QtHideAndShowDialog
 {
-  Q_OBJECT
+  Q_OBJECT //!OCLINT
 
 public:
   explicit QtFilterOperationerMenuDialog(QWidget *parent = 0);

@@ -20,7 +20,7 @@ struct QtUblasMatrixDoubleModel;
 
 class QtFilterOperationerMainDialog : public QtHideAndShowDialog
 {
-  Q_OBJECT
+  Q_OBJECT //!OCLINT
 
 public:
   explicit QtFilterOperationerMainDialog(QWidget *parent = 0);

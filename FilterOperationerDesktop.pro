@@ -24,7 +24,8 @@ QMAKE_CXXFLAGS += -std=c++14
 
 # High warning levels
 # apfloat goes bad with -Wshadow
-QMAKE_CXXFLAGS += -Wall -Wextra -Wnon-virtual-dtor -pedantic -Weffc++ -Werror
+# -Weffc++ goes bad with Qt
+QMAKE_CXXFLAGS += -Wall -Wextra -Wnon-virtual-dtor -pedantic -Werror
 
 # Debug and release mode
 CONFIG += debug_and_release

@@ -16,7 +16,8 @@ QMAKE_CC = gcc-5
 QMAKE_CXXFLAGS += -std=c++14
 
 # High warning levels
-QMAKE_CXXFLAGS += -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic -Weffc++ -Werror
+# -Weffc++ goes bad with Qt
+QMAKE_CXXFLAGS += -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic -Werror
 
 # Debug and release mode
 CONFIG += debug_and_release
@@ -40,8 +41,8 @@ CONFIG(debug, debug|release) {
   LIBS += -lubsan
 }
 
-# Only Q
-QT += core #gui
+# Only QtCore
+QT += core
 
 # Fixes
 #/usr/include/boost/math/constants/constants.hpp:277: error: unable to find numeric literal operator 'operator""Q'
