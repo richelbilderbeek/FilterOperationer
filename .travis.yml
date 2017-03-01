@@ -35,6 +35,7 @@ before_script:
 
 script: 
   - ./download_other_githubs
+  - ./install_other_githubs
   # Console
   - qmake -qt=qt5 FilterOperationerConsole.pro
   - make
