@@ -41,48 +41,34 @@ struct FilterOperationerMainDialog
     const boost::numeric::ublas::matrix<double>& filter); //y-x-ordered
 
   private:
-  static double GetFilterOperationPixel(
-    const std::vector<std::vector<int> >& source, //y-x-ordered
-    const int sourceX,
-    const int sourceY,
-    const std::vector<std::vector<double> >& filter); //y-x-ordered
-
-
-  static const std::vector<std::vector<int> > DoFilterOperation(
-    const std::vector<std::vector<int> >& source, //y-x-ordered
-    const std::vector<std::vector<double> >& filter); //y-x-ordered
-
-  static const std::pair<double,double> GetFilterRange(const std::vector<std::vector<double> >& filter);
-
-  //const std::vector<std::vector<int> > GetRescaledImage(
-  //  const std::vector<std::vector<int> >& source);
-
-  //const std::vector<std::vector<int> > GetRescaledImage(
-  //  const std::vector<std::vector<int> >& source,
-  //  const std::vector<std::vector<double> >& filter);
-
-  //export template <class T>
-  //const double GetAverage(const std::vector<std::vector<T> >& v);
-
-
-  //From htpp://www.richelbilderbeek.nl/CppGetCumulativeHistogram.htm
-  template <class T> const std::vector<T> GetCumulativeHistogram(const std::vector<T>& histogram);
-
-  ///Y-X ordered
-  static const std::vector<std::vector<int> > PixmapToVector(const QPixmap& pixmap);
-
-  static const std::vector<std::vector<int> > ImageToVector(const QImage& image);
-
-  ///Y-X ordered
-  static const std::vector<std::vector<double> > MatrixToVector(const boost::numeric::ublas::matrix<double>& m);
-
-  ///Y-X ordered
-  static const QImage VectorToImage(const std::vector<std::vector<int> >& m);
-
-  #ifndef NDEBUG
-  static void Test() noexcept;
-  #endif
 };
+
+double GetFilterOperationPixel(
+  const std::vector<std::vector<int> >& source, //y-x-ordered
+  const int sourceX,
+  const int sourceY,
+  const std::vector<std::vector<double> >& filter); //y-x-ordered
+
+std::vector<std::vector<int> > DoFilterOperation(
+  const std::vector<std::vector<int> >& source, //y-x-ordered
+  const std::vector<std::vector<double> >& filter); //y-x-ordered
+
+std::pair<double,double> GetFilterRange(const std::vector<std::vector<double> >& filter);
+
+//From htpp://www.richelbilderbeek.nl/CppGetCumulativeHistogram.htm
+template <class T> const std::vector<T> GetCumulativeHistogram(const std::vector<T>& histogram);
+
+///Y-X ordered
+std::vector<std::vector<int> > PixmapToVector(const QPixmap& pixmap);
+
+std::vector<std::vector<int> > ImageToVector(const QImage& image);
+
+///Y-X ordered
+std::vector<std::vector<double> > MatrixToVector(const boost::numeric::ublas::matrix<double>& m);
+
+///Y-X ordered
+QImage VectorToImage(const std::vector<std::vector<int> >& m);
+
 
 } //~namespace ribi
 

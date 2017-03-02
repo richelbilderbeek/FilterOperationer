@@ -27,7 +27,7 @@ const QPixmap ribi::FilterOperationerMainDialog::DoFilterOperation(
   };
 
   const std::vector<std::vector<int> > x {
-    DoFilterOperation(
+    ::ribi::DoFilterOperation(
       v, //y-x-ordered
       w //y-x-ordered
     )
@@ -45,7 +45,8 @@ const QPixmap ribi::FilterOperationerMainDialog::DoFilterOperation(
 //Return a y-x-ordered 2D std::vector with the intensitief of grey
 //values from range [0,255] (0=black,255=white) after the filter operation
 //From http://www.richelbilderbeek.nl/CppDoFilterOperation.htm
-const std::vector<std::vector<int> > ribi::FilterOperationerMainDialog::DoFilterOperation(
+std::vector<std::vector<int> >
+ribi::DoFilterOperation(
   const std::vector<std::vector<int> >& source, //y-x-ordered
   const std::vector<std::vector<double> >& filter) //y-x-ordered
 {
@@ -77,7 +78,9 @@ const std::vector<std::vector<int> > ribi::FilterOperationerMainDialog::DoFilter
       //  filter operation took place on
       //The outcome of the filter operation is written to
       //  (x + midX, y + midY), which HAS to be in range
-      const double unscaledPixelValue = GetFilterOperationPixel(source,x-midX,y-midY,filter);
+      const double unscaledPixelValue{
+        GetFilterOperationPixel(source,x-midX,y-midY,filter)
+      };
       //Scale the unscaledPixelValue.
       //The maximal value of unscaledPixelValue is the sum of all positive
       //values in the filter * 255.
@@ -112,7 +115,7 @@ const std::vector<std::vector<int> > ribi::FilterOperationerMainDialog::DoFilter
 //The outcome of this filter operation will be written to
 //  (x + midX, y + midY), which HAS to be in range
 //From http://www.richelbilderbeek.nl/CppDoFilterOperation.htm
-double ribi::FilterOperationerMainDialog::GetFilterOperationPixel(
+double ribi::GetFilterOperationPixel(
   const std::vector<std::vector<int> >& source, //y-x-ordered
   const int sourceX,
   const int sourceY,
@@ -145,7 +148,9 @@ double ribi::FilterOperationerMainDialog::GetFilterOperationPixel(
       assert(x < filterMaxX);
       assert(readX >= 0);
       assert(readX < sourceMaxX);
-      const double deltaResult = static_cast<double>(lineSource[readX]) * lineFilter[x];
+      const double deltaResult{
+        static_cast<double>(lineSource[readX]) * lineFilter[x]
+      };
       result += deltaResult;
       ++nPixels;
     }
@@ -159,7 +164,10 @@ double ribi::FilterOperationerMainDialog::GetFilterOperationPixel(
 //Obtains the range a filter can have
 //Assumes the every element has a maximum value of 255
 //From http://www.richelbilderbeek.nl/CppDoFilterOperation.htm
-const std::pair<double,double> ribi::FilterOperationerMainDialog::GetFilterRange(const std::vector<std::vector<double> >& filter)
+std::pair<double,double>
+ribi::GetFilterRange(
+  const std::vector<std::vector<double> >& filter
+)
 {
   assert(!filter.empty());
   const int maxx = filter[0].size();
@@ -188,7 +196,8 @@ const std::pair<double,double> ribi::FilterOperationerMainDialog::GetFilterRange
   return range;
 }
 
-const std::vector<std::vector<int> > ribi::FilterOperationerMainDialog::ImageToVector(const QImage& image)
+std::vector<std::vector<int> >
+ribi::ImageToVector(const QImage& image)
 {
   const int height = image.height();
   const int width = image.width();
@@ -212,8 +221,8 @@ const std::vector<std::vector<int> > ribi::FilterOperationerMainDialog::ImageToV
   return v;
 }
 
-const std::vector<std::vector<double> >
-  ribi::FilterOperationerMainDialog::MatrixToVector(
+std::vector<std::vector<double> >
+  ribi::MatrixToVector(
   const boost::numeric::ublas::matrix<double>& m)
 {
   const int height = m.size1();
@@ -231,12 +240,13 @@ const std::vector<std::vector<double> >
   return v;
 }
 
-const std::vector<std::vector<int> > ribi::FilterOperationerMainDialog::PixmapToVector(const QPixmap& pixmap)
+std::vector<std::vector<int> >
+ribi::PixmapToVector(const QPixmap& pixmap)
 {
   return ImageToVector(pixmap.toImage());
 }
 
-const QImage ribi::FilterOperationerMainDialog::VectorToImage(
+QImage ribi::VectorToImage(
   const std::vector<std::vector<int> >& v)
 {
   assert(!v.empty());
