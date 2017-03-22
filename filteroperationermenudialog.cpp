@@ -12,7 +12,7 @@ int ribi::FilterOperationerMenuDialog::ExecuteSpecific(const std::vector<std::st
     return 0;
   }
   assert(!"TODO");
-  return 1;
+  return 0;
 }
 
 ribi::About ribi::FilterOperationerMenuDialog::GetAbout() const noexcept
