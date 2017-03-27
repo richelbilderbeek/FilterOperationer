@@ -37,11 +37,11 @@ script:
   - ./install_other_githubs
   # Console
   - qmake -qt=qt5 FilterOperationerConsole.pro
-  - make
+  - make debug
   - ./FilterOperationerConsole
   # Desktop
   - qmake -qt=qt5 FilterOperationerDesktop.pro
-  - make
+  - make debug
   - ./FilterOperationerDesktop &
   - sleep 10
   # Get code coverage
