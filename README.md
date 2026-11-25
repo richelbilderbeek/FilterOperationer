@@ -1,6 +1,7 @@
 # FilterOperationer
 
-[Go to the nicely rendered website](https://richelbilderbeek.github.io/FilterOperationer/).
+[Go to the nicely rendered
+website](https://richelbilderbeek.github.io/FilterOperationer/).
 
 Branch|[![Travis CI logo](TravisCI.png)](https://travis-ci.org)|[![Codecov logo](Codecov.png)](https://www.codecov.io)
 ---|---|---
